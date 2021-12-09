@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MihailinStrikesBack.Models.Images>
+@{
+
+            }
+<h1>FILE, СЮДА</h1>
+<form asp-action="addimages" method="post" enctype="multipart/form-data" asp-controller="home">
+    <input type="file" name="file"/>
+    <input type="submit" value="Send"/>
+</form>
+<h3>List of files</h3>
+@foreach (var f in Model)
+            {
+                <p><img src="@Url.Content(f.PathImage)"/></p>
+            }

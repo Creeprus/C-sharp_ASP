@@ -1,0 +1,112 @@
+﻿@model MihailinStrikesBack.Models.User
+@{
+
+}
+
+
+
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<!--===============================================================================================-->
+
+<body style="background-color:blueviolet">
+
+    <form asp-action="UserPage" asp-controller="home" class="text-center">
+        <div class="limiter" style="background-color:blueviolet">
+            <div class="container-login100">
+                <span class="login100-form-title">
+                    <a>Page</a>
+                </span>
+
+
+                <div class="wrap-login100">
+
+                    <div class="login100-form validate-form">
+                        <div class="wrap-input100 validate-input">
+                            <img src="@Model.ID_Image.PathImage" width="80" height="80" />
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        @*<input type="text" value="@ViewData["EmailUser"]" />
+                        <input type="text" value="@ViewData["LoginUser"]" />
+
+                        <input type="text" value="@ViewData["ImageUser"]" />
+                        <input type="text" value="@ViewData["DateUser"]" />
+                        <input type="text" value="@ViewData["DescUser"]" />*@
+                        @*<a> @ViewBag.ID_User</a>*@
+                        <a></a>
+                        @*a>@ViewBag.ImageID</a>*@
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <a>Login: @Model.Login</a>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div>
+                        <div class="wrap-input100 validate-input">
+                            <a>@Model.Description</a>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <a>Birth date: @Model.BirthDate</a>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                    </div>
+                    <hr class="dashed" />
+                    <div class="wrap-input100 validate-input">
+                        <a asp-action="postsother" asp-controller="home" asp-route-id="@Model.Id"> Posts</a>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        
+     
+   
+        <div asp-action="ListUserReturn" asp-controller="home">
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" asp-action="ListUserReturn">
+                    List of user's
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+</body>

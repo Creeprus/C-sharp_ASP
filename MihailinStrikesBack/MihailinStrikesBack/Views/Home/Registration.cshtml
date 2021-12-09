@@ -1,0 +1,93 @@
+﻿@model MihailinStrikesBack.Models.User
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<!--===============================================================================================-->
+
+<body style="background-color:blueviolet">
+
+    <form asp-action="registration"  asp-controller="home" enctype="multipart/form-data">
+        <div class="limiter" style="background-color:blueviolet">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <div class="login100-form validate-form">
+
+                        <span class="login100-form-title">
+                            Registration
+                        </span>
+
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" name="email" type="text" placeholder="Enter Email" required asp-for="Email">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="text" asp-for="Login" placeholder="Login" required />
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="password" placeholder="Enter Password" required asp-for="Password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" name="date12" type="date" placeholder="Enter Date of birth" required asp-for="BirthDate">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+
+                        <div class="wrap-input100 validate-input" style="background-color:blueviolet">
+                            
+                            @*X<img width="80" height="80" src="@Url.Content(Model.Image.PathImage)" />*@
+                                <input class="input100" name="file" type="file" placeholder="Set photo" asp-for="ID_Image"/>
+                             
+                                   @*<img width="80" height="80" src="@Url.Content(Model.Image.PathImage)" />*@
+                                
+
+                        
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                Register
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+</body>

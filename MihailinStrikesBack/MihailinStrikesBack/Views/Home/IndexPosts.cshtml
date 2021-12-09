@@ -1,0 +1,130 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Все пользователи";
+}
+
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="~/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<!--===============================================================================================-->
+
+<body style="background-color:blueviolet">
+
+    <div class="">
+        <div class="container-login100">
+            <div class="container-login100-form">
+                <form method="get" asp-action="indeximages" class="login100-form validate-form">
+
+
+                    <div class="form-inline form-group container-login100-form">
+                        <label class="control-label">ID: </label>
+                        <input type="number" value="@Model.FilterViewPost.SelectId" name="id" min="1" class="form-control" />
+                        <label class="control-label">Title: </label>
+                        <input type="text" value="@Model.FilterViewPost.SelectTitle" name="name" class="form-control" />
+
+                        <input type="submit" value="Search" class="btn" />
+                    </div>
+                </form>
+
+                <table class="table select2-container--above ">
+
+                    <tr>
+                        <td>
+                            <a asp-action="IndexPosts" asp-route-sortORder="@Model.SortViewPosts.PostID" style="color:black" asp-route-id="@Model.FilterViewPost.SelectId" asp-route-login="@Model.FilterViewPost.SelectId">
+                                ID
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="IndexPosts" asp-route-sortORder="@Model.SortViewPosts.Title" style="color:black" asp-route-id="@Model.FilterViewPost.SelectTitle" asp-route-login="@Model.FilterViewPost.SelectTitle">
+
+                                Title
+                            </a>
+                        </td>
+                        <td>
+                            <a>
+
+                                Message
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="IndexPosts" asp-route-sortORder="@Model.SortViewPosts.Date" style="color:black">
+
+                                Date
+                            </a>
+                        </td>
+
+
+                        @*<td>Password</td>*@
+                        @*<td>Description</td>
+        <td>Birthdate</td>*@
+                    </tr>
+                    @foreach (var item in Model.Post2Sprav)
+                    {
+                        <tr class="wrap-login100">
+                            <td>@item.Post_ID.id   </td>
+                            <td>@item.Post_ID.Title   </td>
+                            <td>@item.Post_ID.Message   </td>
+                            <td>@item.Post_ID.DatePost   </td>
+
+
+                            @*<td>@item.ID_Image.ImageName</td>
+                    <td>@item.ID_Image.PathImage</td>*@
+                            @*<td>@item.Password</td>
+                    <td>@item.Description</td>
+                    <td>@item.BirthDate</td>*@
+
+
+
+                            @*<td><a asp-action="detailsimage" asp-controller="home" asp-route-id="@item.Id">Details</a></td>*@
+
+
+                        </tr>
+                    }
+                </table>
+                @*<form>
+            <div class="container-login100-form-btn">
+                <button class="btn-google" asp-action="create" asp-controller="home">Add user</button>
+            </div>
+        </form>*@
+
+                @if (Model.PageViewModel.HasPreviousPage)
+                {
+                    <a asp-action="indexposts"
+                       asp-route-page="@(Model.PageViewModel.PageNumber-1)"
+                       asp-route-id="@(Model.FilterViewPost.SelectId)"
+                       asp-route-imagename-="@(Model.FilterViewPost.SelectTitle)"
+                       asp-route-sortOrder="@(Model.SortViewPosts.Current)"
+                       style="color:black"
+                       class="btn btn-outline-dark">Back</a>
+                }
+                @if (Model.PageViewModel.HasNextPage)
+                {
+                    <a asp-action="indexposts"
+                       asp-route-page="@(Model.PageViewModel.PageNumber+1)"
+                       asp-route-id="@(Model.FilterViewPost.SelectId)"
+                       asp-route-imagename-="@(Model.FilterViewPost.SelectTitle)"
+                       asp-route-sortOrder="@(Model.SortViewPosts.Current)"
+                       style="color:black"
+                       class="btn btn-outline-dark">Forward</a>
+                }
+                <a asp-action="index" style="color:black" class="btn btn-outline-dark">Go to user's list</a>
+                <a asp-action="indeximages" style="color:black" class="btn btn-outline-dark">Go to image's list</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
